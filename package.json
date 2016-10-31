@@ -1,0 +1,23 @@
+{
+  "name": "tap-dapper",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "main": "index.js",
+  "bin": {
+    "tap-dapper": "bin/cmd.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "VOL",
+  "dependencies": {
+    "tap-form-synopsis": "^1.0.0",
+    "tap-synopsis": "^0.3.0",
+    "tap-vibrant": "0.0.0",
+    "tape-unsummarize": "^1.1.0",
+    "throo": "^1.0.0",
+    "through2": "^2.0.1"
+  },
+  "devDependencies": {}
+}
