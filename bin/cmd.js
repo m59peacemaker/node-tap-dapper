@@ -1,23 +1,14 @@
 #!/usr/bin/env node
 
 const through = require('throo')
-const formSynopsis = require('tap-form-synopsis')
-const combineStreams = require('../combine-streams-with-sequenced-end')
+const exitCode = require('tap-exit-code')
+const tapeUnsummarize = require('tape-unsummarize')
+const prefixLines = require('prefix-stream-lines')
 const reporter = require('../')
 
-const reporterWithExitCode = () => {
-  const formSynopsisStream = formSynopsis()
-  formSynopsisStream
-    .pipe(through.obj((push, synopsis, enc, cb) => {
-      if (synopsis.failed.length) {
-        process.on('exit', () => process.exit(1))
-      }
-      cb()
-    }))
-  const reporterStream = reporter()
-  return combineStreams(reporterStream, formSynopsisStream)
-}
-
 process.stdin
-  .pipe(reporterWithExitCode())
+  .pipe(exitCode())
+  .pipe(tapeUnsummarize())
+  .pipe(reporter())
+  .pipe(prefixLines('  '))
   .pipe(process.stdout)

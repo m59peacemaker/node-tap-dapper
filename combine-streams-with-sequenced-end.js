@@ -1,7 +1,7 @@
 const through = require('throo')
 
 const combineStreams = (...streams) => {
-  const stream = through((push, chunk, enc, cb) => {
+  const stream = through.obj((push, chunk, enc, cb) => {
     streams.forEach(s => s.write(chunk))
     cb()
   }, (push, cb) => {
