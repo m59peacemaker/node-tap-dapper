@@ -1,6 +1,6 @@
 {
   "name": "tap-dapper",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "TAP with style.",
   "keywords": [
     "TAP",
@@ -24,7 +24,7 @@
     "name": "Johnny Hauser",
     "email": "johnnyhauser@gmail.com"
   },
-  "license": "VOL",
+  "license": "CC0-1.0",
   "dependencies": {
     "duplexer": "^0.1.1",
     "prefix-stream-lines": "^1.0.1",
